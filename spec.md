@@ -19,6 +19,10 @@
     git remote add origin git@github.com:roadpilot/project-five-react-redux.git
     git branch -M main
     git push -u origin main
+    test by changing some text in a file and saving.
+    You should have staged changes
+    You should be able to commit and push
+    Your changes should show up in the github.com remote repo.
 **Create rails api app:**
     rails new project-five-react-redux --api --database=postgresql
     create backend dir and move all app files into
