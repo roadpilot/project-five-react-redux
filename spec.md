@@ -31,7 +31,7 @@
     sudo apt-get install postgresql
     sudo service postgresql start (sudo service postgresql stop to stop)
     sudo -u postgres createuser --superuser term
-    rake db:setup
+    rails db:setup
 
 ## Domain Modeling
 As you turn your user stories into more clear technical specifications for features, you can start by modeling the data that your application will store and show. Identify the nouns in your stories, their properties, and their relationships.
