@@ -62,7 +62,11 @@ clean up index.html:
 clean up app.js
     remove logo import
     remove all return but some test string "foo"
-    
+clean up app.css
+    remove any unused css
+
+add store to index.js
+    1. 
 
 
 ## MVP ASAP
