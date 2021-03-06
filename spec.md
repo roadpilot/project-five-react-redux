@@ -56,6 +56,14 @@ rails g resource Bet user_id:integer game_id:integer bet_amount:integer bet_type
 install react: npx create-react-app frontend
 install redux: npm install --save react-redux
 
+clean up index.html:
+    remove logo ref's etc.
+    update title
+clean up app.js
+    remove logo import
+    remove all return but some test string "foo"
+    
+
 
 ## MVP ASAP
 (Minimum Viable Product, As Soon As Possible)

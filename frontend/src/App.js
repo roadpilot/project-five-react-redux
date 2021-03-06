@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 function App() {
   return (
+    "foo"
   );
 }
 
