@@ -66,7 +66,11 @@ clean up app.css
     remove any unused css
 
 add store to index.js
-    1. 
+    1. store
+    2. reducer
+    3. combine reducer
+    4. middleware
+    
 
 
 ## MVP ASAP
