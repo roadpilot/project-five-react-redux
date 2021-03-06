@@ -1,5 +1,10 @@
 //@@INIT returns default state of all reducers
-export default (state=[], action) => {
+const initialState = [{
+    "username":"mda",
+    "name":"Martin"
+}]
+
+export default (state=initialState, action) => {
     switch (action.type){
         default:
             return state
