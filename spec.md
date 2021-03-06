@@ -45,13 +45,10 @@ Later on, you will be ready to create the database schema and application models
 rails g resource User username:string name:string password_digest:string --no-test-framework
     seeds
     test in console
-rails g resource Game user_id:integer gameid:integer timestamps --no-test-framework
+rails g resource Game user_id:integer gameid:integer --no-test-framework
     seeds
     test in console
-rails g resource Bet user_id:integer household_id:integer --no-test-framework
-    seeds
-    test in console
-rails g resource Item name:string description:string current_location:string proper_location:string household_id:integer last_update_user_id:integer --no-test-framework
+rails g resource Bet user_id:integer game_id:integer bet_amount:integer bet_type:string bet_status:string bet_odds:integer --no-test-framework
     seeds
     test in console
 
@@ -59,7 +56,6 @@ rails g resource Item name:string description:string current_location:string pro
 (Minimum Viable Product, As Soon As Possible)
 
 Instead of getting stuck on advanced features, start with a basic working version of the application, then steadily add features piece by piece.
-
 **START WITH LOGIN**
 
 - [] 9. Create your `UsersController`
