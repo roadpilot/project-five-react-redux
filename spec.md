@@ -42,7 +42,7 @@ As you turn your user stories into more clear technical specifications for featu
 Later on, you will be ready to create the database schema and application models corresponding to this domain.
 
 ## Build resources
-rails g resource User username:string password_digest:string --no-test-framework
+rails g resource User username:string name:string password_digest:string --no-test-framework
     seeds
     test in console
 rails g resource Game --no-test-framework
