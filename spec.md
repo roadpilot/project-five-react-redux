@@ -52,7 +52,6 @@ rails g resource Bet user_id:integer game_id:integer bet_amount:integer bet_type
     seeds
     test in console
 
-## Build resources
 install react: npx create-react-app frontend
 install redux: npm install --save react-redux
 
@@ -71,7 +70,8 @@ add store to index.js
     3. combine reducer
     4. middleware
     
-
+Add store for user
+Add store for session
 
 ## MVP ASAP
 (Minimum Viable Product, As Soon As Possible)
