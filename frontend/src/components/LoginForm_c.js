@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = () => {
+const LoginForm = () => {
   const handleInputChange = event => {
       return "foo"
   }
@@ -33,3 +33,4 @@ const Login = () => {
   )
 }
 
+export default LoginForm
