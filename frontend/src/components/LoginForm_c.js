@@ -7,6 +7,7 @@ const LoginForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    console.log(event.target)
   }
 
   return (
