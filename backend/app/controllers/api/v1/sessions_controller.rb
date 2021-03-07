@@ -1,4 +1,5 @@
 class Api::V1::SessionsController < ApplicationController
+
     def create
         @user = User.find_by(username: params[:session][:username])
         if @user && @user.authenticate(params[:session][:password])
@@ -11,4 +12,11 @@ class Api::V1::SessionsController < ApplicationController
             }
         end
     end
+
+    def current_user
+        render json: {
+            error: "TEST"
+        }
+    end
+
 end
