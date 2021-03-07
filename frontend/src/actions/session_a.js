@@ -7,26 +7,27 @@ export const setCurrentUser = user => {
 }
 
 // asynch creators
-export const login = (credentials, history) => {
-  const credentials = {username: "mda", password: "pw"}
-  return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(r => r.json())
-      .then(response => {
-        if (response.error) {
-          alert(response.error)
-        } else {
-          dispatch(setCurrentUser(response.data))
-        }
-      })
-      .catch(console.log)
-  }
+export const login = (credentials) => {
+  console.log(credentials)
+  // const credentials = {username: "mda", password: "pw"}
+  // return dispatch => {
+  //   return fetch("http://localhost:3001/api/v1/login", {
+  //     credentials: "include",
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(credentials)
+  //   })
+  //     .then(r => r.json())
+  //     .then(response => {
+  //       if (response.error) {
+  //         alert(response.error)
+  //       } else {
+  //         dispatch(setCurrentUser(response.data))
+  //       }
+  //     })
+  //     .catch(console.log)
+  // }
 }
 

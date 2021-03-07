@@ -1,6 +1,9 @@
 import React from 'react'
+import { login } from '../actions/session_a'
+import { connect } from 'react-redux'
 
-const LoginForm = () => {
+
+const LoginForm = ({ login }) => {
   const handleInputChange = event => {
       return "foo"
   }
@@ -8,6 +11,7 @@ const LoginForm = () => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log(event.target)
+    login(event.target)
   }
 
   return (
@@ -34,4 +38,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm
+export default connect(null,{login})(LoginForm)
