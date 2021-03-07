@@ -71,7 +71,7 @@ add store to index.js
     4. middleware
     
 Add store for user
-Add store for sessions
+Add store for sessions2
 
 ## MVP ASAP
 (Minimum Viable Product, As Soon As Possible)
