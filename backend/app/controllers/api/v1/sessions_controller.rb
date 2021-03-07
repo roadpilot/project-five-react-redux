@@ -14,9 +14,12 @@ class Api::V1::SessionsController < ApplicationController
     end
 
     def current_user
-        render json: {
-            error: "TEST"
-        }
+        @user = User.find_by(id: session[:user_id])
+        render json: UserSerializer.new(@user), status: :ok
+
+        # render json: {
+        #     error: "TEST"
+        # }
     end
 
 end
