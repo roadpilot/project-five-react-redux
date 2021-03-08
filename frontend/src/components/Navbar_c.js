@@ -10,14 +10,19 @@ const Navbar = ({ currentUser, loggedIn }) => {
       <NavLink exact activeClassName="active" to="/games"  >My Games</NavLink>
       <NavLink exact activeClassName="active" to="/bets"  >My Bets</NavLink>
       <NavLink exact activeClassName="active" to="/bets/new" >New Bet</NavLink>
-      { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p>Logout</> : null}
+      Logged in as {currentUser}Logout
     </div>
   )
 }
 
 const mapStateToProps = state => {
+  console.log("SESSION",Object.keys(state.session).length)
+    let currentUser = ""
+    if (Object.keys(state.session).length>0){
+      currentUser = state.session.attributes.name
+    }
   return {
-    currentUser: state.session,
+    currentUser,
     loggedIn: state.session===null
   }
 }
