@@ -2,10 +2,12 @@
 const initialState = []
 
 export default (state=initialState, action) => {
+    console.log(action.type)
     switch (action.type){
         case "SET_CURRENT_USER":
-            console.log("hit reducer")
             return action.user
+        case "CLEAR_CURRENT_USER":
+            return null
         default:
             return state
     }

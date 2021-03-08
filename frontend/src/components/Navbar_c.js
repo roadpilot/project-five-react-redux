@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Logout from './Logout_c'
+
 
 
 const Navbar = ({ currentUser, loggedIn }) => {
@@ -10,13 +12,13 @@ const Navbar = ({ currentUser, loggedIn }) => {
       <NavLink exact activeClassName="active" to="/games"  >My Games</NavLink>
       <NavLink exact activeClassName="active" to="/bets"  >My Bets</NavLink>
       <NavLink exact activeClassName="active" to="/bets/new" >New Bet</NavLink>
-      Logged in as {currentUser}Logout
+      Logged in as {currentUser}<Logout/>
     </div>
   )
 }
 
 const mapStateToProps = state => {
-  console.log("SESSION",Object.keys(state.session).length)
+  // console.log("SESSION",Object.keys(state.session).length)
     let currentUser = ""
     if (Object.keys(state.session).length>0){
       currentUser = state.session.attributes.name

@@ -6,8 +6,14 @@ export const setCurrentUser = user => {
     }
 }
 
+export const clearCurrentUser = () => {
+  return {
+    type: "CLEAR_CURRENT_USER"
+  }
+}
+
+// asynch creators
 export const getCurrentUser = () => {
-    console.log("ACTION")
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/current_user", {
       credentials: "include",
@@ -29,7 +35,6 @@ export const getCurrentUser = () => {
   }
 }
 
-// asynch creators
 export const login = (credentials) => {
   // console.log(credentials)
   credentials = {username: "mda", password: "password"}
@@ -52,5 +57,18 @@ export const login = (credentials) => {
       })
       .catch(console.log)
   }
+}
+
+export const destroySession = () => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    // dispatch(clearMyGames())
+    // dispatch(clearAllGames())
+    return fetch('http://localhost:3001/api/v1/logout', {
+      credentials: "include",
+      method: "DELETE"
+    })
+  }
+
 }
 
