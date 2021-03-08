@@ -1,9 +1,10 @@
 import React from 'react'
 import { login } from '../actions/session_a'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 
-const LoginForm = ({ login }) => {
+const NewUserForm = ({ login }) => {
   const handleInputChange = event => {
       return "foo"
   }
@@ -15,6 +16,7 @@ const LoginForm = ({ login }) => {
   }
 
   return (
+    <div>
     <form 
     onSubmit={handleSubmit}
     >
@@ -24,24 +26,29 @@ const LoginForm = ({ login }) => {
       type="text" 
       onChange={handleInputChange} 
       />
+      <br/>
       <input 
       placeholder="Password" 
       name="password" 
       type="text" 
       onChange={handleInputChange} 
       />
+      <br/>
       <input 
       placeholder="Name" 
       name="name" 
       type="text" 
       onChange={handleInputChange} 
       />
+      <br/>
       <input 
       type="submit" 
-      value="Log In"
+      value="Create My Account"
       />
     </form>
+    <NavLink exact activeClassName="active" to="/"  >I'm an existing user...</NavLink>
+    </div>
   )
 }
 
-export default connect(null,{login})(LoginForm)
+export default connect(null,{login})(NewUserForm)
