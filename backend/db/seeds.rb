@@ -12,4 +12,4 @@ Bet.destroy_all
 
 a=User.create(name: "Martin", username: "mda", password: "password")
 b=a.games.create(gameid: 25290)
-c=b.bets.create(bet_type: "spread", amount:1000, bet_status: "placed")
+c=b.bets.create(bet_type: "spread", bet_amount:1000, bet_status: "placed")
