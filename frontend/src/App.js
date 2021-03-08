@@ -5,6 +5,7 @@ import LoginForm  from './components/LoginForm_c'
 import { getCurrentUser } from './actions/session_a'
 import MainContainer from './components/MainContainer_c';
 import Navbar from './components/Navbar_c';
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,4 +35,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
