@@ -35,6 +35,35 @@ export const getCurrentUser = () => {
   }
 }
 
+export const signup = (credentials, history) => {
+  return dispatch => {
+    const userInfo = {
+      user: credentials
+    }
+    return fetch("http://localhost:3001/api/v1/signup", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInfo)
+    })
+      .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(setCurrentUser(response.data))
+          // dispatch(getAllGames())
+          // dispatch(getMyGames())
+          // dispatch(resetSignupForm())
+          // history.push('/')
+        }
+      })
+      .catch(console.log)
+  }
+}
+
 export const login = (credentials) => {
   // console.log(credentials)
   credentials = {username: "mda", password: "password"}
