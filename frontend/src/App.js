@@ -29,8 +29,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.session)
   return ({
-    loggedIn: state.session===null,
+    loggedIn: (state.session===null || state.session.length===0),
   })
 }
 
