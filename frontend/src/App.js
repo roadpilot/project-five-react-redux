@@ -2,10 +2,11 @@ import React from 'react'
 import './App.css';
 import {connect} from 'react-redux'
 import LoginForm  from './components/LoginForm_c'
+import NewUserForm  from './components/NewUserForm_c'
 import { getCurrentUser } from './actions/session_a'
 import MainContainer from './components/MainContainer_c';
 import Navbar from './components/Navbar_c';
-import { Route, Switch, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
   componentDidMount() {
@@ -15,7 +16,12 @@ class App extends React.Component {
   render(){
     if (this.props.loggedIn) {
       // Render loading state ...
-    return (<LoginForm/>)
+    return (
+      <Switch>
+          <Route exact path='/signup' component={NewUserForm}/>
+          <Route exact path='/' component={LoginForm}/>
+      </Switch>
+    )
     } else {
       // Render real UI ...
     return (
