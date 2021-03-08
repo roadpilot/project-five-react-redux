@@ -6,6 +6,7 @@ import Logout from './Logout_c'
 
 
 const Navbar = ({ currentUser, loggedIn }) => {
+    if (currentUser!==""){
   return (
     <div className="NavBar">
       <NavLink exact activeClassName="active" to="/"  >Home</NavLink>
@@ -15,6 +16,10 @@ const Navbar = ({ currentUser, loggedIn }) => {
       Logged in as {currentUser}<Logout/>
     </div>
   )
+    }
+    else {
+      return("Please wait...")
+    }
 }
 
 const mapStateToProps = state => {
