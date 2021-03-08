@@ -22,4 +22,11 @@ class Api::V1::SessionsController < ApplicationController
         # }
     end
 
+  def destroy
+    session.clear
+    render json: {
+      notice: "See you next time!"
+    }, status: :ok
+  end
+
 end
