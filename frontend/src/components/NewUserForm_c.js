@@ -1,10 +1,10 @@
 import React from 'react'
-import { login } from '../actions/session_a'
+import { signup } from '../actions/session_a'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 
-const NewUserForm = ({ login }) => {
+const NewUserForm = ({ signup }) => {
   const handleInputChange = event => {
       return "foo"
   }
@@ -12,7 +12,7 @@ const NewUserForm = ({ login }) => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log(event.target)
-    login(event.target)
+    signup(event.target)
   }
 
   return (
@@ -51,4 +51,4 @@ const NewUserForm = ({ login }) => {
   )
 }
 
-export default connect(null,{login})(NewUserForm)
+export default connect(null,{signup})(NewUserForm)
