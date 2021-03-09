@@ -62,7 +62,7 @@ export const signup = (credentials, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(getAllGames())
+          // dispatch(getAllGames())
           // dispatch(getMyGames())
           // dispatch(resetSignupForm())
           // history.push('/')
@@ -103,8 +103,8 @@ export const login = (credentials) => {
 export const destroySession = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearAllGames())
     // dispatch(clearMyGames())
-    // dispatch(clearAllGames())
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: "include",
       method: "DELETE"
