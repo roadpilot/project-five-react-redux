@@ -1,4 +1,15 @@
 class Api::V1::GamesController < ApplicationController
+  def index
+    if current_user
+      @games = current_user.games
+      render json: @games
+    else
+      # render json: {
+      #   error: "You must be logged in to see games"
+      # }
+    end
+  end
+
   def create
     @game = current_user.games.build(game_params)
 
