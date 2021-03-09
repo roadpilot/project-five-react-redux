@@ -1,4 +1,5 @@
 import { getAllGames, clearAllGames } from "./allGames_a.js"
+import { getMyGames } from "./myGames_a.js"
 
 // synch creators
 export const setCurrentUser = user => {
@@ -32,6 +33,7 @@ export const getCurrentUser = () => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(getAllGames())
+          dispatch(getMyGames())
         }
       })
       .catch(console.log)
