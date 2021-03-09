@@ -110,8 +110,6 @@ GEM
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
-    pg (1.2.3-x64-mingw32)
-    pg (1.2.3-x86-mingw32)
     puma (5.2.2)
       nio4r (~> 2.0)
     puma (5.2.2-java)
@@ -161,6 +159,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -192,6 +191,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 6.1.1)
   spring
+  sqlite3
   tzinfo-data
 
 RUBY VERSION
