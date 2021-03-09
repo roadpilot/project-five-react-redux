@@ -1,12 +1,18 @@
 import { getAllGames, clearAllGames } from "./allGames_a.js"
-import { getMyGames } from "./myGames_a.js"
+import { getMyGames, clearMyGames } from "./myGames_a.js"
 
 // synch creators
 export const setCurrentUser = (user) => {
-    return {
-        type: "SET_CURRENT_USER",
-        user
+  return dispatch => {
+    if (user){
+      dispatch(getAllGames())
+      dispatch(getMyGames())
     }
+    dispatch ({
+      type: "SET_CURRENT_USER",
+      user
+    })
+  }
 }
 
 export const clearCurrentUser = () => {
@@ -32,10 +38,6 @@ export const getCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          if (response.data){
-            dispatch(getAllGames())
-            dispatch(getMyGames())
-          }
         }
       })
       .catch(console.log)
@@ -66,11 +68,6 @@ export const signup = (credentials, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          if (response.data){
-            dispatch(getAllGames())
-            dispatch(getMyGames())
-          }
-          // dispatch(resetSignupForm())
           // history.push('/')
         }
       })
@@ -80,11 +77,11 @@ export const signup = (credentials, history) => {
 
 export const login = (credentials) => {
   // console.log(credentials)
-  // credentials = {username: "mda", password: "password"}
   credentials = {
         username: credentials.username.value,
         password: credentials.password.value
   }
+  credentials = {username: "mda", password: "password"}
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -100,10 +97,6 @@ export const login = (credentials) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          if (response.data){
-            dispatch(getAllGames())
-            dispatch(getMyGames())
-          }
         }
       })
       .catch(console.log)
@@ -114,7 +107,7 @@ export const destroySession = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
     dispatch(clearAllGames())
-    // dispatch(clearMyGames())
+    dispatch(clearMyGames())
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: "include",
       method: "DELETE"
