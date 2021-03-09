@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post "/api/v1/signup", to: "api/v1/users#create"
   namespace :api do
     namespace :v1 do
-      resources :users
+      resources :games
     end
   end
 end
