@@ -36,9 +36,12 @@ export const getCurrentUser = () => {
 }
 
 export const signup = (credentials, history) => {
+  // console.log(credentials.name.value)
   return dispatch => {
     const userInfo = {
-      user: credentials
+      user: credentials.username.value,
+      password: credentials.password.value,
+      name: credentials.name.value
     }
     return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",
