@@ -2,7 +2,7 @@ import { getAllGames, clearAllGames } from "./allGames_a.js"
 import { getMyGames } from "./myGames_a.js"
 
 // synch creators
-export const setCurrentUser = user => {
+export const setCurrentUser = (user) => {
     return {
         type: "SET_CURRENT_USER",
         user
@@ -32,8 +32,10 @@ export const getCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          dispatch(getAllGames())
-          dispatch(getMyGames())
+          if (response.data){
+            dispatch(getAllGames())
+            dispatch(getMyGames())
+          }
         }
       })
       .catch(console.log)
@@ -64,8 +66,10 @@ export const signup = (credentials, history) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
-          // dispatch(getAllGames())
-          // dispatch(getMyGames())
+          if (response.data){
+            dispatch(getAllGames())
+            dispatch(getMyGames())
+          }
           // dispatch(resetSignupForm())
           // history.push('/')
         }
@@ -96,6 +100,10 @@ export const login = (credentials) => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
+          if (response.data){
+            dispatch(getAllGames())
+            dispatch(getMyGames())
+          }
         }
       })
       .catch(console.log)
