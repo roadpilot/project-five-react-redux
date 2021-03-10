@@ -38,6 +38,13 @@ if (game){
     // moneyHome = game.odds[0].moneyline.current.homeOdds
     moneyOdds = game.odds[0].moneyline.current[spreadFav+'Odds']
   }
+  if (typeof game.odds === 'object'){
+    // console.log(game.odds[0])
+    overOdds = game.odds[0].total.current.overOdds
+    gameTotal = game.odds[0].total.current.total
+    // console.log(game.odds[0].total)
+  }
+
 }
 
 let buttonStyle = {}
