@@ -1,2 +1,3 @@
-class BetsController < ApplicationController
+class Api::V1::BetsController < ApplicationController
+
 end
