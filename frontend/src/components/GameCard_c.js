@@ -59,7 +59,16 @@ if (game){
     spreadOdds=spread_bet.bet_odds
     spreadWin = winCalc(spread,spreadOdds)
   }
-  // console.log(spread)
+
+  const moneyline_bet=bets.find(bet => bet.bet_type === "moneyline")
+  if (moneyline_bet){
+    moneyline=moneyline_bet.bet_amount
+    moneyOdds=moneyline_bet.bet_odds
+    moneyWin = winCalc(moneyline,moneyOdds)
+    // console.log(moneyWin)
+  }
+
+
 }
 
 let buttonStyle = {}
