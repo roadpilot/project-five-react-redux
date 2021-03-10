@@ -11,6 +11,10 @@ export default (state = initialState, action) => {
       console.log( "ACTION", action)
       // debugger
       return state.concat(action.game)
+    case "DELETE_GAME":
+      console.log( "action.gameId is ", action)
+      // debugger
+      return state.filter(game => game.id === action.game_id ? false : true)
     default:
       return state
   }

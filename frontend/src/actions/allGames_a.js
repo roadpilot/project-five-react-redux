@@ -47,8 +47,8 @@ export const getAllGames = () => {
 }
 
 export const addGame = (gameId) => {
-  alert("addGame")
-  console.log(gameId)
+  // alert("addGame")
+  // console.log(gameId)
   return dispatch => {
     const gameData = {
       gameid: gameId

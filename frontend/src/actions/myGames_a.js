@@ -53,7 +53,7 @@ export const dropGame = (game_id) => {
         if (resp.error) {
           alert(resp.error)
         } else {
-          dispatch(deleteGameFromState(game_id))
+          dispatch(deleteGame(game_id))
           // history.push(`/games`)
           // go somewhere else --> game show?
           // add the new game to the store
@@ -63,7 +63,7 @@ export const dropGame = (game_id) => {
   }
 }
 
-export const deleteGameFromState = game_id => {
+export const deleteGame = game_id => {
   console.log("TEST")
   return {
     type: "DELETE_GAME",
