@@ -4,6 +4,9 @@ class Api::V1::BetsController < ApplicationController
     # bet_props[:user_id] = current_user.id
     # byebug
     @bet = current_user.bets.build(bet_params)
+    @bet = Bet.find_or_create_by(game_id: bet_params[:game_id], id: bet_params[:bet_id], bet_type: bet_params[:bet_type])
+    @bet.bet_amount = bet_params[:bet_amount]
+    @bet.bet_odds = bet_params[:bet_odds]
     @bet.user_id = current_user.id
 
     if @bet.save
