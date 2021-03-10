@@ -6,6 +6,7 @@ let gametime = ""
 let spread = ""
 let spreadVal = ""
 let spreadFav = ""
+let spreadUdog = ""
 let spreadOdds = ""
 let spreadWin = ""
 let spreadRes = ""
@@ -18,6 +19,22 @@ let scoreAway = ""
 let scoreHome = ""
 let gameTotal = ""
 let overOdds = ""
+if (game){
+  if (game.odds && game.odds[0].spread){
+    if (game.odds[0].spread.current.away<0){
+      spreadFav = "away"
+      spreadUdog = "home"
+    } else {
+      spreadFav = "home"
+      spreadUdog = "away"
+    }
+    // console.log(t.gameId,t.odds[0].spread)
+    // console.log(spreadFav)
+    spreadVal = game.odds[0].spread.current[spreadFav]
+    spreadOdds = game.odds[0].spread.current[spreadFav+'Odds']
+  }
+}
+
 let buttonStyle = {}
 return (
     game ?
