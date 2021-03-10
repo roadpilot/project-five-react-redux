@@ -7,6 +7,10 @@ export default (state = initialState, action) => {
       return action.mygames
     case "CLEAR_MY_GAMES":
       return initialState
+    case "ADD_GAME_TO_STATE":
+      console.log( "ACTION", action)
+      // debugger
+      return state.concat(action.game)
     default:
       return state
   }
