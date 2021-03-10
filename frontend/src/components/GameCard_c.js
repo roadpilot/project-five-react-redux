@@ -10,10 +10,13 @@ let spreadUdog = ""
 let spreadOdds = ""
 let spreadWin = ""
 let spreadRes = ""
+let spreadId = ""
 let moneyline = ""
+let moneylineId = ""
 let moneyOdds = ""
 let moneyWin = ""
 let total = ""
+let totalId = ""
 let totalWin = ""
 let scoreAway = ""
 let scoreHome = ""
@@ -56,6 +59,7 @@ if (game){
   console.log("SPREAD", spread_bet)
   if (spread_bet){
     spread=spread_bet.bet_amount
+    spreadId = spread_bet.bet_id
     spreadOdds=spread_bet.bet_odds
     spreadWin = winCalc(spread,spreadOdds)
   }
@@ -63,6 +67,7 @@ if (game){
   const moneyline_bet=bets.find(bet => bet.bet_type === "moneyline")
   if (moneyline_bet){
     moneyline=moneyline_bet.bet_amount
+    moneylineId = moneyline_bet.bet_id
     moneyOdds=moneyline_bet.bet_odds
     moneyWin = winCalc(moneyline,moneyOdds)
     // console.log(moneyWin)
@@ -71,6 +76,7 @@ if (game){
   const total_bet=bets.find(bet => bet.bet_type === "total")
   if (total_bet){
     total=total_bet.bet_amount
+    totalId = total_bet.bet_id
     totalOdds=total_bet.bet_odds
     totalWin = winCalc(total,totalOdds)
   }
@@ -104,7 +110,7 @@ return (
             <div>
               <BetForm 
               game_id={game_id} 
-              bet_id={game_id} 
+              betId={moneylineId} 
               betName="Win (Favorite)" 
               betType="moneyline" 
               betAmount={moneyline} 
@@ -115,7 +121,7 @@ return (
             <div>
               <BetForm 
               game_id={game_id} 
-              bet_id={game_id} 
+              betId={spreadId}
               betName="Spread (Favorite)" 
               betType="spread" 
               betAmount={spread} 
@@ -126,7 +132,7 @@ return (
             <div>
               <BetForm 
               game_id={game_id} 
-              bet_id={game_id} 
+              betId={totalId} 
               betName={`Total (${gameTotal})`} 
               betType="total" 
               betAmount={total} 
