@@ -12,9 +12,8 @@ class Api::V1::GamesController < ApplicationController
 
   def create
     @game = current_user.games.build(game_params)
-
     if @game.save
-      render json:  @game, status: :created
+      render json:  GameSerializer.new(@game), status: :created
     else
       error_resp = {
         error: @game.errors.full_messages.to_sentence
