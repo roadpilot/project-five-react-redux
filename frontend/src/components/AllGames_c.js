@@ -10,6 +10,18 @@ const AllGames = props => {
       return (!statuses.includes(el.status))
     });
 
+    games.sort(function(a, b) {
+      var nameA = a.schedule.date.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.schedule.date.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
+
   const gameCards = props.allGames.length > 0 
   ?
     games.map(game => {
