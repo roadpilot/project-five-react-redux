@@ -18,7 +18,7 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
     const form = event.target.form
     console.log("TEST",event.target.form)
     const betData ={
-      bet_id: form.bet_id.value,
+      id: form.bet_id.value,
       bet_type: form.bet_type.value,
       bet_amount: form.bet_amount.value,
       bet_odds: form.bet_odds.value,

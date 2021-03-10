@@ -80,7 +80,9 @@ export const deleteGame = game_id => {
 }
 
 export const addBet = (betData) => {
-  console.log("ACTION",betData)
+  betData = {bet: {...betData}}
+  console.log("BETFORMDATA",betData)
+  // debugger
   return dispatch => {
     return fetch(`http://localhost:3001/api/v1/games/${betData.game_id}/bets`, {
       credentials: "include",
