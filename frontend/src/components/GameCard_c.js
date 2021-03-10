@@ -18,7 +18,7 @@ let totalWin = ""
 let scoreAway = ""
 let scoreHome = ""
 let gameTotal = ""
-let overOdds = ""
+let totalOdds = ""
 if (game){
   if (game.odds && game.odds[0].spread){
     if (game.odds[0].spread.current.away<0){
@@ -40,7 +40,7 @@ if (game){
   }
   if (typeof game.odds === 'object'){
     // console.log(game.odds[0])
-    overOdds = game.odds[0].total.current.overOdds
+    totalOdds = game.odds[0].total.current.overOdds
     gameTotal = game.odds[0].total.current.total
     // console.log(game.odds[0].total)
   }
@@ -68,6 +68,12 @@ if (game){
     // console.log(moneyWin)
   }
 
+  const total_bet=bets.find(bet => bet.bet_type === "total")
+  if (total_bet){
+    total=total_bet.bet_amount
+    totalOdds=total_bet.bet_odds
+    totalWin = winCalc(total,totalOdds)
+  }
 
 }
 
@@ -124,7 +130,7 @@ return (
               betName={`Total (${gameTotal})`} 
               betType="total" 
               betAmount={total} 
-              betOdds={overOdds} 
+              betOdds={totalOdds} 
               betWin={totalWin} 
               />
             </div>
