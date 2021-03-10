@@ -37,8 +37,8 @@ export const getMyGames = () => {
 
 
 
-export const deleteGame = (game_id) => {
-  console.log("deleteGame",game_id)
+export const dropGame = (game_id) => {
+  console.log("dropGame",game_id)
   return dispatch => {
   // debugger
     return fetch(`http://localhost:3001/api/v1/games/${game_id}`, {
