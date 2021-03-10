@@ -6,7 +6,7 @@ import Logout from './Logout_c'
 
 
 const Navbar = ({ currentUser, loggedIn }) => {
-    if (currentUser!==""){
+    if (loggedIn){
   return (
     <div className="NavBar">
       <NavLink exact activeClassName="active" to="/"  >Home</NavLink>
@@ -30,7 +30,7 @@ const mapStateToProps = state => {
     }
   return {
     currentUser,
-    loggedIn: state.session===null
+    loggedIn: state.session!==null
   }
 }
 
