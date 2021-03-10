@@ -51,8 +51,7 @@ export const addGame = (gameId) => {
   console.log(gameId)
   return dispatch => {
     const gameData = {
-      gameid: gameId,
-      user_id: "1"
+      gameid: gameId
     }
     return fetch("http://localhost:3001/api/v1/games", {
       credentials: "include",
@@ -68,10 +67,7 @@ export const addGame = (gameId) => {
           alert(resp.error)
         } else {
           dispatch(addGameToState(resp.data))
-          // dispatch(resetTripForm())
           // history.push(`/trips/${resp.data.id}`)
-          // go somewhere else --> trip show?
-          // add the new trip to the store
         }
       })
       .catch(console.log)
