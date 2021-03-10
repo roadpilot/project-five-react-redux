@@ -10,6 +10,12 @@ const AllGames = props => {
       return (!statuses.includes(el.status))
     });
 
+    const mygameIds = props.myGames.map(mygame => mygame.attributes.gameid)
+    // console.log(mygameIds)
+    games = games.filter(function (el) {
+      return (!mygameIds.includes(el.gameId))
+    });
+
     games.sort(function(a, b) {
       var nameA = a.schedule.date.toUpperCase(); // ignore upper and lowercase
       var nameB = b.schedule.date.toUpperCase(); // ignore upper and lowercase
@@ -37,7 +43,8 @@ const AllGames = props => {
 
 const mapStateToProps = state => {
   return {
-    allGames: state.allGames
+    allGames: state.allGames,
+    myGames: state.myGames
   }
 }
 
