@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
       return state.concat(action.game)
     case "UPDATE_GAME":
       return state.map(game => game.id === action.game.id ? action.game : game)
-    // case "DELETE_GAME":
+    // case "DROP_GAME_FROM_MYGAMES":
     //   //console.log( "action.gameId is ", action.gameId)
     //   return state.filter(game => game.id === action.gameId ? false : true)
     case "CLEAR_ALL_GAMES":

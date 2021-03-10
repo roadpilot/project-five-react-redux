@@ -13,7 +13,7 @@ export const clearAllGames = () => {
 
 export const addGameToState = game => {
   return {
-    type: "ADD_GAME_TO_STATE",
+    type: "ADD_GAME_TO_MYGAMES",
     game
   }
 }
