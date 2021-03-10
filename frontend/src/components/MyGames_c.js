@@ -6,12 +6,13 @@ import { dropGame } from '../actions/myGames_a'
 const MyGames = props => {
   const gameCards = props.myGames.length > 0 ?
     props.myGames.map(gc => {
-      const game=props.allGames.find(game => game.gameId == gc.attributes.gameid)
+      const game = props.allGames.find(game => game.gameId == gc.attributes.gameid)
+      const bets = gc.attributes.bets
       console.log(gc.attributes.gameid)
-      console.log(game)
+      console.log("BETS", bets)
       // debugger
       return (
-        <GameCard key={gc.id} game_id={gc.id} buttonText="Drop" buttonHandler={props.dropGame} game={game} bets={gc.attributes.bets}/>
+        <GameCard key={gc.id} game_id={gc.id} buttonText="Drop" buttonHandler={props.dropGame} game={game} bets={bets}/>
       )}
     ) :
     null
