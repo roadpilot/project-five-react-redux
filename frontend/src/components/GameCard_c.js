@@ -79,11 +79,7 @@ return (
         </div>
       </div>
       :
-      <tr>
-      <td>
-      <p>Please wait...</p>
-      </td>
-      </tr>
+      null
   )
 }
 
