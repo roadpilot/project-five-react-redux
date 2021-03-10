@@ -7,7 +7,8 @@ class Api::V1::BetsController < ApplicationController
     @bet.user_id = current_user.id
 
     if @bet.save
-      render json:  @bet, status: :created
+      @game = @bet.game
+      render json:  GameSerializer.new(@game), status: :created
     else
       error_resp = {
         error: @bet.errors.full_messages.to_sentence
@@ -19,6 +20,6 @@ class Api::V1::BetsController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def bet_params
-      params.require(:bet).permit(:game_id, :bet_odds, :bet_amount, :bet_type)
+      params.require(:bet).permit(:bet_id, :game_id, :bet_odds, :bet_amount, :bet_type)
     end
 end
