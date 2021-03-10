@@ -33,6 +33,11 @@ if (game){
     spreadVal = game.odds[0].spread.current[spreadFav]
     spreadOdds = game.odds[0].spread.current[spreadFav+'Odds']
   }
+  if (game.odds && game.odds[0].moneyline){
+    // moneyAway = game.odds[0].moneyline.current.awayOdds
+    // moneyHome = game.odds[0].moneyline.current.homeOdds
+    moneyOdds = game.odds[0].moneyline.current[spreadFav+'Odds']
+  }
 }
 
 let buttonStyle = {}
