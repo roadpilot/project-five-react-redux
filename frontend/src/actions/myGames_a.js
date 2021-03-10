@@ -13,6 +13,14 @@ export const clearMyGames = () => {
   }
 }
 
+export const updateGame = game => {
+  // console.log("REDCUER",game)
+  return {
+    type: "UPDATE_GAME",
+    game
+  }
+}
+
 export const getMyGames = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/games", {
@@ -66,7 +74,7 @@ export const dropGame = (game_id) => {
 export const deleteGame = game_id => {
   console.log("TEST")
   return {
-    type: "DELETE_GAME",
+    type: "DROP_GAME_FROM_MYGAMES",
     game_id
   }
 }
@@ -87,7 +95,7 @@ export const addBet = (betData) => {
         if (resp.error) {
           alert(resp.error)
         } else {
-          // dispatch(addGameToState(resp.data))
+          dispatch(updateGame(resp.data))
         }
       })
       .catch(console.log)
