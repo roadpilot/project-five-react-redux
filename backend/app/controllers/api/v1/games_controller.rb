@@ -22,6 +22,17 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
+  def destroy
+    if @game.destroy
+      render json:  { data: "game successfully destroyed" }, status: :ok
+    else
+      error_resp = {
+        error: "game not found and not destroyed"
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end
+  end
+
   private
     # Only allow a trusted parameter "white list" through.
     def game_params
