@@ -23,6 +23,7 @@ class Api::V1::GamesController < ApplicationController
   end
 
   def destroy
+    @game = Game.find(params[:id])
     if @game.destroy
       render json:  { data: "game successfully destroyed" }, status: :ok
     else
