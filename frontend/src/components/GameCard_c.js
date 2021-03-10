@@ -1,7 +1,7 @@
 import React from 'react'
 import BetForm from './BetForm_c.js'
 
-const GameCard = ({ game, game_id, buttonText, buttonHandler }) => {
+const GameCard = ({ game, game_id, buttonText, buttonHandler, bets }) => {
 let gametime = ""
 let spread = ""
 let spreadVal = ""
@@ -45,6 +45,21 @@ if (game){
     // console.log(game.odds[0].total)
   }
 
+  const winCalc = (amount, odds) => {
+    // console.log(amount,odds)
+    let win=(amount*-((1/odds)*100)).toFixed(0)
+    let win_disp = (win > 0) ? win : "";
+    return win_disp
+  }
+
+  const spread_bet=bets.find(bet => bet.bet_type === "spread")
+  console.log("SPREAD", spread_bet)
+  if (spread_bet){
+    spread=spread_bet.bet_amount
+    spreadOdds=spread_bet.bet_odds
+    spreadWin = winCalc(spread,spreadOdds)
+  }
+  // console.log(spread)
 }
 
 let buttonStyle = {}
