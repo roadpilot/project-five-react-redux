@@ -68,8 +68,15 @@
   flex: 1 100%;
 }
 
-.header {
+.wrapper-list > * {
+  padding: 10px;
+  border-radius: 10px;
+  flex: 1 100%;
+}
+
+.header-list {
   background:rgb(255, 255, 150);
+  background-color: #f1f1f1;
 }
 
 .footer {

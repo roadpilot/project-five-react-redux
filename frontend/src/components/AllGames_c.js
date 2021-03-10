@@ -1,5 +1,5 @@
 import React from 'react'
-import GameCard from './GameCard_c'
+// import GameCard from './GameCard_c'
 import { connect } from 'react-redux'
 import { addGame } from '../actions/allGames_a'
 
@@ -32,8 +32,23 @@ const AllGames = props => {
   ?
     games.map(game => {
       // console.log(game.gameId)
+      const gameTime = new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
+      const buttonStyle = {}
       return (
-        <GameCard key={game.gameId} game_id={game.gameId} buttonText="Add" buttonHandler={props.addGame} game={props.allGames.find(game_find => game_find.gameId === game.gameId)} bets={[]}/>
+        <div key={game.gameId} className="flex-container-list">
+          <div className="wrapper">
+            <header className="header-list">
+              {gameTime} {game.details.league}: {game.summary}
+            </header>
+            <aside className="aside aside-1">
+              <button 
+              style={buttonStyle}
+              onClick={()=>props.addGame(game.gameId)}
+              >Add</button>
+            </aside>
+          </div>
+        </div>
+        // <GameCard key={game.gameId} game_id={game.gameId} buttonText="Add" buttonHandler={props.addGame} game={props.allGames.find(game_find => game_find.gameId === game.gameId)} bets={[]}/>
       )
     })
  :
