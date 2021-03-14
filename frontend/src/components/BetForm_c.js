@@ -28,7 +28,7 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
   }
     let buttonLabel="Bet This"
     if (betId !== "") {
-      buttonLabel = "Update This"
+      buttonLabel = "Update"
     }
 
     return(
@@ -76,6 +76,16 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
                       value={buttonLabel}
                       onClick={submitHandler}
                       />
+                      {
+                      (betId !== "")?
+                      <input 
+                      type="button"
+                      value="Delete"
+                      onClick={submitHandler}
+                      />
+                      :null
+                      
+                      }
                   </span>
                 </span>
               </form>
