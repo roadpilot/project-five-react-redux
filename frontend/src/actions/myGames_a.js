@@ -120,6 +120,7 @@ export const deleteBet = (betData) => {
         if (resp.error) {
           alert(resp.error)
         } else {
+          dispatch(updateGame(resp.data))
           // dispatch(deleteGame(game_id))
           // history.push(`/games`)
           // go somewhere else --> game show?
