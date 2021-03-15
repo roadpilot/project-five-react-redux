@@ -21,6 +21,20 @@ class Api::V1::BetsController < ApplicationController
     end
   end
 
+  def destroy
+    @bet = Bet.find(params[:id])
+    @game = Game.find(@bet.game_id)
+    if @bet.destroy
+      render json:  GameSerializer.new(@game), status: :created
+      # render json:  { data: "bet successfully destroyed" }, status: :ok
+    else
+      error_resp = {
+        error: "bet not found and not destroyed"
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end
+  end
+
   private
     # Only allow a trusted parameter "white list" through.
     def bet_params
