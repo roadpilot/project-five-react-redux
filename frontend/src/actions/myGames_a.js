@@ -103,3 +103,12 @@ export const addBet = (betData) => {
       .catch(console.log)
   }
 }
+
+export const deleteBet = bet_id => {
+  console.log("DELETE_BET")
+  return {
+    type: "DELETE_BET",
+    bet_id
+  }
+}
+
