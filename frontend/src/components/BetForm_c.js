@@ -26,6 +26,20 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
     }
     addBet(betData)
   }
+
+  const deleteHandler = event => {
+    event.preventDefault()
+    const form = event.target.form
+    console.log("TEST",event.target.form)
+    const betData ={
+      id: form.bet_id.value,
+      bet_type: form.bet_type.value,
+      bet_amount: form.bet_amount.value,
+      bet_odds: form.bet_odds.value,
+      game_id: form.game_id.value
+    }
+    deleteBet(betData)
+  }
     let buttonLabel="Bet This"
     if (betId !== "") {
       buttonLabel = "Update"
@@ -70,7 +84,7 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
             <input 
             type="button"
             value="X"
-            onClick={deleteBet}
+            onClick={deleteHandler}
             style={{"color":"red","font-weight":"bold"}}
             />
             :null

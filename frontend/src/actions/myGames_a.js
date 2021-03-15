@@ -104,11 +104,41 @@ export const addBet = (betData) => {
   }
 }
 
-export const deleteBet = bet_id => {
-  console.log("DELETE_BET")
-  return {
-    type: "DELETE_BET",
-    bet_id
+export const deleteBet = (betData) => {
+  console.log("deleteBet",betData.game_id)
+  return dispatch => {
+  // debugger
+    return fetch(`http://localhost:3001/api/v1/games/${betData.game_id}/bets/${betData.id}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(r => r.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          // dispatch(deleteGame(game_id))
+          // history.push(`/games`)
+          // go somewhere else --> game show?
+          // add the new game to the store
+        }
+      })
+      .catch(console.log)
   }
 }
+
+
+
+
+
+// export const deleteBet = bet_id => {
+//   console.log("DELETE_BET")
+//   return {
+//     type: "DELETE_BET",
+//     bet_id
+//   }
+// }
 
