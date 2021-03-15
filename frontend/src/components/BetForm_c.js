@@ -28,14 +28,11 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
   }
 
   const deleteHandler = event => {
-    event.preventDefault()
+    // event.preventDefault()
     const form = event.target.form
     console.log("TEST",event.target.form)
     const betData ={
       id: form.bet_id.value,
-      bet_type: form.bet_type.value,
-      bet_amount: form.bet_amount.value,
-      bet_odds: form.bet_odds.value,
       game_id: form.game_id.value
     }
     deleteBet(betData)
@@ -51,8 +48,8 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
         <input type="hidden" name="bet_id" value={betId}/>
         <input type="hidden" name="bet_type" value={betType}/>
         <input type="hidden" name="bet_odds" value={betOdds}/>
-        <div class="bet-container">
-          <div class="bet-items">
+        <div className="bet-container">
+          <div className="bet-items">
             {betName} Bet:
             <input 
             size="5"
@@ -62,10 +59,10 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
             defaultValue={betAmount}
             />
           </div>
-          <div class="bet-items">
+          <div className="bet-items">
             @{betOdds}
           </div>
-          <div class="bet-items">
+          <div className="bet-items">
             To win:
             <input 
             disabled
@@ -85,7 +82,7 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
             type="button"
             value="X"
             onClick={deleteHandler}
-            style={{"color":"red","font-weight":"bold"}}
+            style={{"color":"red","fontWeight":"bold"}}
             />
             :null
             }
