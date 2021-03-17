@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import {connect} from 'react-redux'
 import LoginForm  from './components/LoginForm_c'
+import ParentComponent from './components/StatefulFormParent_c'
 import NewUserForm  from './components/NewUserForm_c'
 import { getCurrentUser } from './actions/session_a'
 import MainContainer from './components/MainContainer_c';
@@ -20,6 +21,7 @@ class App extends React.Component {
       <Switch>
           <Route exact path='/signup' component={NewUserForm}/>
           <Route exact path='/' component={LoginForm}/>
+          <Route exact path='/form' component={ParentComponent}/>
       </Switch>
     )
     } else {
