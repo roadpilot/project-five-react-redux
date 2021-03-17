@@ -1,5 +1,5 @@
 import React from 'react'
-import BetForm from './BetForm_c.js'
+import BetForm from './BetForm2_c.js'
 
 const GameCard = ({ game, game_id, buttonText, buttonHandler, bets }) => {
 let gametime = ""
