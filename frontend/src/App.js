@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css';
 import {connect} from 'react-redux'
-import LoginForm  from './components/LoginForm_c'
+import LoginForm  from './components/LoginForm2_c'
 import ParentComponent from './components/StatefulFormParent_c'
 import NewUserForm  from './components/NewUserForm_c'
 import { getCurrentUser } from './actions/session_a'
