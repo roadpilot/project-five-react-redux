@@ -8,11 +8,22 @@ import Logout from './Logout_c'
 const Navbar = ({ currentUser, loggedIn }) => {
     if (loggedIn){
   return (
-    <div className="NavBar">
-      <NavLink exact activeClassName="active" to="/"  >Home</NavLink>
-      <NavLink exact activeClassName="active" to="/games"  >My Games</NavLink>
-      <NavLink exact activeClassName="active" to="/bets"  >My Bets</NavLink>
-      <NavLink exact activeClassName="active" to="/bets/new" >New Bet</NavLink>
+    <div className="grid grid-cols-7 gap-4 m-5">
+      <NavLink exact 
+      className={`px-5 py-3 rounded-lg transform transition bg-gray-500 hover:bg-gray-400 hover:-translate-y-0.5 focus:ring-gray-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-gray-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`} 
+      to="/"  >ALL</NavLink>
+      <NavLink exact 
+      className={`px-5 py-3 rounded-lg transform transition bg-indigo-500 hover:bg-indigo-400 hover:-translate-y-0.5 focus:ring-indigo-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-indigo-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`} 
+      to="/games/mlb"  >MLB</NavLink>
+      <NavLink exact 
+      className={`px-5 py-3 rounded-lg transform transition bg-red-500 hover:bg-red-400 hover:-translate-y-0.5 focus:ring-red-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-red-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`} 
+      to="/games/ncaab"  >NCAAB</NavLink>
+      <NavLink exact 
+      className={`px-5 py-3 rounded-lg transform transition bg-green-500 hover:bg-green-400 hover:-translate-y-0.5 focus:ring-green-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-green-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}
+      to="/games/nba" >NBA</NavLink>
+      <NavLink exact 
+      className={`px-5 py-3 rounded-lg transform transition bg-yellow-500 hover:bg-yellow-400 hover:-translate-y-0.5 focus:ring-yellow-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-yellow-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}
+      to="/games/nhl" >NHL</NavLink>
       Logged in as {currentUser}<Logout/>
     </div>
   )
