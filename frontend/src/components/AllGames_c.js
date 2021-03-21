@@ -5,11 +5,19 @@ import { addGame } from '../actions/allGames_a'
 
 const AllGames = props => {
     let games = props.allGames
+
     let statuses = ['canceled']
     games = games.filter(function (el) {
       return (!statuses.includes(el.status))
     });
 
+    if (props.leagueFilter!==""){
+      const leagueFilter = props.leagueFilter.toUpperCase()
+      games = games.filter(function (el) {
+        return (el.details.league===leagueFilter)
+      });
+    }
+    
     const mygameIds = props.myGames.map(mygame => mygame.attributes.gameid)
     // console.log(mygameIds)
     games = games.filter(function (el) {
@@ -34,7 +42,6 @@ const AllGames = props => {
       // console.log(game.gameId)
       let cardColor = "black"
       const gameTime = new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
-      console.log(game.details.league)
       switch(game.details.league) {
         case "MLB":
           cardColor = "indigo"
@@ -51,7 +58,7 @@ const AllGames = props => {
         default:
           cardColor = "black"
       }
-      const buttonStyle = {}
+      
       return (
     //     <div key={game.gameId} className="flex-container-list">
     //       <div className="wrapper">
@@ -69,6 +76,7 @@ const AllGames = props => {
     //     // <GameCard key={game.gameId} game_id={game.gameId} buttonText="Add" buttonHandler={props.addGame} game={props.allGames.find(game_find => game_find.gameId === game.gameId)} bets={[]}/>
             // <div className="grid grid-cols-3 gap-4">
             <div
+              key={game.gameId}
               className={`px-5 py-3 rounded-lg transform transition bg-${cardColor}-500 hover:bg-${cardColor}-400 hover:-translate-y-0.5 focus:ring-${cardColor}-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-${cardColor}-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}
               href="#"
               onClick={()=>props.addGame(game.gameId)}

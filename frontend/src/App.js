@@ -17,27 +17,38 @@ class App extends React.Component {
   render(){
     if (this.props.loggedIn) {
       // Render loading state ...
-    return (
-      <Switch>
-          <Route exact path='/signup' component={NewUserForm}/>
-          <Route exact path='/' component={LoginForm}/>
-          <Route exact path='/form' component={ParentComponent}/>
-      </Switch>
-    )
+      return (
+        <Switch>
+            <Route exact path='/signup' component={NewUserForm}/>
+            <Route exact path='/' component={LoginForm}/>
+            <Route exact path='/form' component={ParentComponent}/>
+        </Switch>
+      )
     } else {
       // Render real UI ...
-    return (
-      <div>
-        <Navbar/>
-        <MainContainer/>        
-      </div>
+      return (
+        <div>
+          <Navbar/>
+          <Switch>
+          <Route exact path='/games/:league'  render={props => {
+               // console.log("LEAGUE",props.match.params.league)
+              return <MainContainer leagueFilter={props.match.params.league}/>
+            }
+          }/>        
+          <Route exact path='/'  render={() => {
+               // console.log("LEAGUE",props.match.params.league)
+              return <MainContainer leagueFilter=''/>
+            }
+          }/>        
+          </Switch>
+        </div>
       )
     }
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state.session)
+  // console.log(state.session)
   return ({
     loggedIn: (state.session===null || state.session.length===0),
   })

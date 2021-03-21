@@ -2,11 +2,11 @@ import React from 'react'
 import AllGames from './AllGames_c.js'
 import MyGames from './MyGames_c.js'
 
-const MainContainer = () => {
+const MainContainer = (props) => {
   return (
     <div className="MainContainer">
       <MyGames/>
-      <AllGames/>
+      <AllGames leagueFilter={props.leagueFilter}/>
     </div>
   )
 }
