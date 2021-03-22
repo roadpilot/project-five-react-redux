@@ -6,7 +6,7 @@ let gametime = ""
 let spread = ""
 let spreadVal = ""
 let spreadFav = ""
-let spreadUdog = ""
+// let spreadUdog = ""
 let spreadOdds = ""
 let spreadWin = ""
 let spreadRes = ""
@@ -26,10 +26,10 @@ if (game){
   if (game.odds && game.odds[0].spread){
     if (game.odds[0].spread.current.away<0){
       spreadFav = "away"
-      spreadUdog = "home"
+      // spreadUdog = "home"
     } else {
       spreadFav = "home"
-      spreadUdog = "away"
+      // spreadUdog = "away"
     }
     // console.log(t.gameId,t.odds[0].spread)
     // console.log(spreadFav)
