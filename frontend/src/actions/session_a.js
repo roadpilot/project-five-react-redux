@@ -81,7 +81,7 @@ export const login = (credentials) => {
         username: credentials.username.value,
         password: credentials.password.value
   }
-  credentials = {username: "mda", password: "password"}
+  // credentials = {username: "mda", password: "passwordz"}
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -94,7 +94,7 @@ export const login = (credentials) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert(response.error)
+          return response.error
         } else {
           dispatch(setCurrentUser(response.data))
         }
