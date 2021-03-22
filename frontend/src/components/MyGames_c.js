@@ -6,7 +6,7 @@ import { dropGame } from '../actions/myGames_a'
 const MyGames = props => {
   const gameCards = props.myGames.length > 0 ?
     props.myGames.map(gc => {
-      const game = props.allGames.find(game => game.gameId == gc.attributes.gameid)
+      const game = props.allGames.find(game => game.gameId === gc.attributes.gameid)
       const bets = gc.attributes.bets
       // console.log(gc.attributes.gameid)
       // console.log("BETS", bets)
