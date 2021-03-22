@@ -19,7 +19,7 @@ class App extends React.Component {
       // Render loading state ...
       return (
         <Switch>
-            <Route exact path='/signup' component={NewUserForm}/>
+            <Route exact path='/signup' component={ParentComponent}/>
             <Route exact path='/' component={LoginForm}/>
             <Route exact path='/form' component={ParentComponent}/>
         </Switch>
