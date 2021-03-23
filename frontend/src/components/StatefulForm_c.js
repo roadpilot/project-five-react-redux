@@ -38,7 +38,7 @@ class Form extends React.Component {
             name='password'
             id='password'
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
-            // onChange={event => handleChange(event)}
+            onChange={event => this.props.handleChange(event)}
             // value={formData.password}
           />
         </fieldset>
