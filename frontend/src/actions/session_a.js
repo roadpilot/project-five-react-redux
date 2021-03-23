@@ -49,9 +49,9 @@ export const signup = (credentials) => {
   return dispatch => {
     const userInfo = {
       user: {
-        username: credentials.username.value,
-        password: credentials.password.value,
-        name: credentials.name.value
+        username: credentials.username,
+        password: credentials.password,
+        name: credentials.name,
       }
     }
     console.log("USERINFO", userInfo)
