@@ -44,7 +44,8 @@ export const getCurrentUser = () => {
   }
 }
 
-export const signup = (credentials, history) => {
+export const signup = (credentials) => {
+  console.log(credentials)
   return dispatch => {
     const userInfo = {
       user: {
@@ -65,10 +66,10 @@ export const signup = (credentials, history) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert(response.error)
+          // alert(response.error)
+          return response.error
         } else {
           dispatch(setCurrentUser(response.data))
-          // history.push('/')
         }
       })
       .catch(console.log)
