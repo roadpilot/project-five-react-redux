@@ -15,7 +15,7 @@ class Form extends React.Component {
         className='w-11/12 max-w-2xl mx-auto mt-8'
       >
         <h1 className='font-bold text-3xl mb-2'>Sign Up</h1>
-        <p className='h-8 text-red-400'>{/*this.props.state.errors.status.message*/}</p>
+        <p className='h-8 text-red-400'>{this.props.errors}</p>
         <fieldset>
           <label className='block uppercase mb-2' htmlFor='email'>
             User Name:
