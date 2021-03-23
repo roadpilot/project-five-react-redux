@@ -36,6 +36,7 @@ const LoginForm = ({ login }) => {
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
             onChange={() => setErrorMsg('')}
             // value={this.props.formData.email}
+            autocomplete="off"
           />
         </fieldset>
                 <fieldset>
@@ -49,6 +50,7 @@ const LoginForm = ({ login }) => {
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
             onChange={() => setErrorMsg('')}
             // value={formData.password}
+            autocomplete="off"
           />
         </fieldset>
         <input
