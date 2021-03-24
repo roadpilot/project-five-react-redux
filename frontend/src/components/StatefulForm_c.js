@@ -27,7 +27,7 @@ class Form extends React.Component {
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
             onChange={event => this.props.handleChange(event)}
             value={this.props.formData.username}
-            autocomplete="off"
+            autoComplete="off"
           />
         </fieldset>
                 <fieldset>
@@ -41,7 +41,7 @@ class Form extends React.Component {
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
             onChange={event => this.props.handleChange(event)}
             // value={formData.password}
-            autocomplete="off"
+            autoComplete="off"
           />
         </fieldset>
         <fieldset>
@@ -55,7 +55,7 @@ class Form extends React.Component {
             className='w-full border-2 focus:outline-none focus:ring-2 p-4 mb-4'
             onChange={event => this.props.handleChange(event)}
             value={this.props.formData.name}
-            autocomplete="off"
+            autoComplete="off"
           />
         </fieldset>
         <input
