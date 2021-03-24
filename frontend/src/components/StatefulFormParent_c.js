@@ -9,7 +9,7 @@ class ParentComponent extends React.Component {
     username: "",
     password: "",
     name: "",
-    errors: "",
+    errors: "TEST",
   }
   
 
@@ -25,13 +25,19 @@ class ParentComponent extends React.Component {
     console.log(this.props)
     this.props.signup(this.state)
       .then(response => {
-        this.setState({
-          ...this.state, "errors": response
-        })
+        console.log("POST SIGNUP",(response===undefined))
+        if (typeof response!=="undefined"){
+          this.setState({
+            ...this.state, "errors": response
+          })
+        }
+        else {
+          this.props.history.push('/')
+        }
       })
-      .then(response => {
-        console.log("STATE",this.state)
-      })
+      // .then(response => {
+      //   console.log("STATE",this.state)
+      // })
     //   .catch(errors => {
     //     console.log(errors)
     // })
