@@ -8,7 +8,7 @@ import Logout from './Logout_c'
 const Navbar = ({ currentUser, loggedIn }) => {
     if (loggedIn){
   return (
-    <div className="grid grid-cols-7 gap-4 m-5">
+    <div className="grid grid-cols-7 gap-4 p-5 fixed bg-gray-300 bg-opacity-100 z-50">
       <NavLink exact 
       className={`px-5 py-3 rounded-lg transform transition bg-gray-500 hover:bg-gray-400 hover:-translate-y-0.5 focus:ring-gray-500 focus:ring-opacity-50 focus:outline-none focus:ring focus:ring-offset-2 active:bg-gray-600 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`} 
       to="/"  >ALL</NavLink>

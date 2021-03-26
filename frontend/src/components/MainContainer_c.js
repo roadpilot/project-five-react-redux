@@ -4,7 +4,7 @@ import MyGames from './MyGames_c.js'
 
 const MainContainer = (props) => {
   return (
-    <div className="MainContainer">
+    <div className="MainContainer pt-20">
       <MyGames/>
       <AllGames leagueFilter={props.leagueFilter}/>
     </div>
