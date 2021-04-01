@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin, addBet, deleteBet }) => {
   const [betAmountInput, setbetAmountInput] = useState(betAmount)
   const [errorMsg, setErrorMsg] = useState()
-  const winCalc = (betAmountInput*-((1/betOdds)*100)).toFixed(0)
+  const winCalc = betOdds<0 ? (betAmountInput*-((1/betOdds)*100)).toFixed(0) : ((betAmountInput/100) * betOdds)
   betWin = (winCalc > 0) ? winCalc : ""
   // let errorMsg = "FOO"
  
@@ -63,6 +63,7 @@ setErrorMsg("Please enter numbers only")
     }
 
     return(
+      betOdds ?
       <form>
         <input type="hidden" name="game_id" value={game_id}/>
         <input type="hidden" name="bet_id" value={betId}/>
@@ -70,7 +71,7 @@ setErrorMsg("Please enter numbers only")
         <input type="hidden" name="bet_odds" value={betOdds}/>
         <div className="bet-container">
           <div className="bet-items">
-            {betName} Bet:
+            {betName} Bet:&nbsp;
             <input 
             size="5"
             type="text"
@@ -78,13 +79,14 @@ setErrorMsg("Please enter numbers only")
             value={betAmountInput}
             onChange={changeHandler}
             // defaultValue={betAmount}
+            className="border-2 focus:outline-none focus:ring-2 rounded-lg"
             />
           </div>
           <div className="bet-items">
             @{betOdds}
           </div>
           <div className="bet-items">
-            To win:
+            To win:&nbsp;
             <input 
             disabled
             size="5"
@@ -95,7 +97,7 @@ setErrorMsg("Please enter numbers only")
             />
             <input 
             type="submit"
-            className='w-half text-center uppercase bg-green-300 cursor-pointer'
+            className='w-1/3 text-center uppercase bg-green-500 cursor-pointer rounded-lg transform transition hover:bg-green-300 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
             value={buttonLabel}
             onClick={submitHandler}
             />
@@ -103,7 +105,7 @@ setErrorMsg("Please enter numbers only")
             (betId !== "")?
               <input 
               type="button"
-              className='w-half text-center uppercase bg-red-300 cursor-pointer p-20'
+              className='w-1/3 text-center uppercase bg-gray-200 cursor-pointer rounded-lg transform transition hover:bg-gray-100 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
               value="X"
               onClick={deleteHandler}
               style={{"color":"red","fontWeight":"bold"}}
@@ -113,8 +115,16 @@ setErrorMsg("Please enter numbers only")
             }
           </div>
         </div>        
-        <p className="text-red-400">{errorMsg}</p>
+        <p className="text-red-400 w-full text-center">{errorMsg}</p>
       </form>
+      :
+      <div className="grid grid-cols-1">
+      <div className="bg-gray-100">
+        <div className="ml-60">
+      No {betType} odds posted for this game
+        </div>
+      </div>
+      </div>
     )
 }
 
