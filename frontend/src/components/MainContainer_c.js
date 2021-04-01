@@ -6,7 +6,9 @@ const MainContainer = (props) => {
   return (
     <div className="MainContainer pt-20">
       <MyGames/>
-      <div className="ml-20 width-full centered">Click any game below to add to your games...</div>
+        <div className={`px-5 py-3 rounded-lg bg-gray-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base text-center`}>
+        Click any game below to add to your games...
+        </div>
       <AllGames leagueFilter={props.leagueFilter}/>
     </div>
   )

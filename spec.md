@@ -154,3 +154,5 @@ Repo General
 
 add delete button with update button
 delete bets with game
+
+format gamecard / betcard

@@ -49,7 +49,7 @@ if (game){
   }
 
   const winCalc = (amount, odds) => {
-    console.log(amount,odds)
+    // console.log(amount,odds)
     let win=(amount*-((1/odds)*100)).toFixed(0)
     let win_disp = (win > 0) ? win : "";
     return win_disp
@@ -86,8 +86,27 @@ if (game){
 let buttonStyle = {}
 return (
     game ?
-        <div className="bg-blue-300 mb-4 rounded-lg">
-          <aside className="aside aside-2"><button style={buttonStyle} onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside> 
+      <div className="flex-container">
+        <div className="wrapper">
+          <header className="header">{game.details.league}: {game.summary}</header>
+          <article className="main">
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td colSpan="2">Away</td>
+                  <td colSpan="2">Home</td>
+                </tr>
+                <tr>
+                  <td>Spread:</td>
+                  <td>{spreadVal} ({spreadFav.substring(0,1)})</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+          <aside className="aside aside-1">{gametime}</aside>
+          <aside className="aside aside-2"><button style={buttonStyle} onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
+          <footer className="footer">
+            Score: {scoreAway} - {scoreHome} ({game.status}) ({spreadRes})
             <div>
               <BetForm 
               game_id={game_id} 
@@ -121,9 +140,9 @@ return (
               betWin={totalWin} 
               />
             </div>
+          </footer>
         </div>
-        :
-        null
+      </div>
       :
       null
   )
