@@ -86,8 +86,26 @@ if (game){
 let buttonStyle = {}
 return (
     game ?
-        <div className="bg-blue-300 mb-4 rounded-lg">
-          <aside className="aside aside-2"><button style={buttonStyle} onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside> 
+      <div className="flex-container">
+        <div className="wrapper">
+          <header className="header">{game.details.league}: {game.summary}</header>
+          <article className="main">
+            <table width="100%">
+              <tbody>
+                <tr>
+                  <td colSpan="2">Away</td>
+                  <td colSpan="2">Home</td>
+                </tr>
+                <tr>
+                  <td>Spread:</td>
+                  <td>{spreadVal} ({spreadFav.substring(0,1)})</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+          <aside className="aside aside-1">{gametime}</aside>
+          <aside className="aside aside-2"><button style={buttonStyle} onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
+
             <div>
               <BetForm 
               game_id={game_id} 
@@ -121,6 +139,7 @@ return (
               betWin={totalWin} 
               />
             </div>
+        </div>
         </div>
         :
         null
