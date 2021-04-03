@@ -22,6 +22,8 @@ let scoreAway = ""
 let scoreHome = ""
 let gameTotal = ""
 let totalOdds = ""
+let cardColor = "black"
+
 if (game){
   if (game.odds && game.odds[0].spread){
     if (game.odds[0].spread.current.away<0){
@@ -80,12 +82,7 @@ if (game){
     totalOdds=total_bet.bet_odds
     totalWin = winCalc(total,totalOdds)
   }
-
-}
-
-let buttonStyle = {}
-let cardColor = "black"
-if (game){
+  
   switch(game.details.league) {
     case "MLB":
       cardColor = "indigo"
@@ -124,7 +121,7 @@ return (
             </table>
           </article>
           <aside className="aside aside-1">{gametime}</aside>
-          <aside className="aside aside-2"><button style={buttonStyle} onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
+          <aside className="aside aside-2"><button onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
 
             <div>
               <BetForm 
