@@ -54,7 +54,7 @@
 }
 
 .aside-2 {
-  background: red;
+  background: rgba(239,68,68);
 }
 
 @media all and (min-width: 600px) {
