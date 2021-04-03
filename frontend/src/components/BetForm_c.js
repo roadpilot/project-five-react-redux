@@ -91,7 +91,7 @@ setErrorMsg("Please enter numbers only")
             (betId !== "")?
               <input 
               type="button"
-              className='w-1/3 text-center uppercase bg-gray-200 cursor-pointer rounded-lg transform transition hover:bg-gray-100 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
+              className='w-1/4 text-center uppercase bg-gray-200 cursor-pointer rounded-lg transform transition hover:bg-gray-100 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
               value="X"
               onClick={deleteHandler}
               style={{"color":"red","fontWeight":"bold"}}
