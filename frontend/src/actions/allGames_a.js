@@ -1,5 +1,10 @@
 export const setAllGames = games => {
-  games = games.map(game => ({...game, gameTime: new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)}))
+  games = games.map(game => ({
+  ...game, 
+  // gameTime: new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
+  gameTime: new Date(game.schedule.date).toLocaleString().split(",")[1].replace(":00","")
+  })
+  )
   return {
     type: "SET_ALL_GAMES",
     games
@@ -21,8 +26,8 @@ export const addGameToState = game => {
 
 export const getAllGames = () => {
   return dispatch => {
-  // fetch("http://104.255.169.179/~achterma/jfjf75h6bgjvhfhge/api.php", {
-  fetch("http://localhost/default.aspx", {
+  fetch("http://104.255.169.179/~achterma/jfjf75h6bgjvhfhge/api.php", {
+  // fetch("http://localhost/default.aspx", {
     "method": "GET",
     "headers": {
       // "x-rapidapi-key": "97c9af71cbmshedc491e264e8007p1a8b16jsn21e4bf6176ca",
