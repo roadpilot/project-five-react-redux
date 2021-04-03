@@ -84,11 +84,31 @@ if (game){
 }
 
 let buttonStyle = {}
+let cardColor = "black"
+if (game){
+  switch(game.details.league) {
+    case "MLB":
+      cardColor = "indigo"
+      break;
+    case "NCAAB":
+      cardColor = "red"
+      break;
+    case "NBA":
+      cardColor = "green"
+      break;
+    case "NHL":
+      cardColor = "yellow"
+      break;
+    default:
+      cardColor = "black"
+  }
+}
+
 return (
     game ?
       <div className="flex-container">
         <div className="wrapper">
-          <header className="bg-red-500">{game.details.league}: {game.summary}</header>
+          <header className={`bg-${cardColor}-500`}>{game.details.league}: {game.summary}</header>
           <article className="main">
             <table width="100%">
               <tbody>
