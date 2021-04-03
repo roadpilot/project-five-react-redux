@@ -54,7 +54,7 @@
 }
 
 .aside-2 {
-  background: hotpink;
+  background: red;
 }
 
 @media all and (min-width: 600px) {

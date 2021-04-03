@@ -132,7 +132,13 @@ return (
               </tbody>
             </table>
           </article>
-          <aside className="aside aside-2"><button onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
+          <aside className="aside aside-2">
+          <button 
+          onClick={()=>buttonHandler(game_id)}
+          className="bg-red-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base"
+          >
+          DROP THIS GAME
+          </button></aside>
 
             <div>
               <BetForm 
