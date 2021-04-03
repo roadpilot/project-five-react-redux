@@ -1,7 +1,7 @@
 import React from 'react'
 import BetForm from './BetForm_c.js'
 
-const GameCard = ({ game, game_id, buttonText, buttonHandler, bets, gameTime }) => {
+const GameCard = ({ game, game_id, buttonText, buttonHandler, bets }) => {
 let spread = ""
 let spreadVal = ""
 let spreadFav = ""
@@ -121,7 +121,7 @@ return (
     game ?
       <div className="flex-container mb-2">
         <div className="wrapper">
-          <header className={`mb-1 bg-${cardColor}-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}>{game.details.league}: {game.summary} {gameTime}</header>
+          <header className={`mb-1 bg-${cardColor}-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}>{game.gameTime} {game.details.league}: {game.summary}</header>
           <article className="main">
             <table width="100%">
               <tbody>
