@@ -40,8 +40,8 @@ const AllGames = props => {
   ?
     games.map(game => {
       // console.log(game.gameId)
-      let cardColor = "black"
       const gameTime = new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
+      let cardColor = "black"
       switch(game.details.league) {
         case "MLB":
           cardColor = "indigo"
