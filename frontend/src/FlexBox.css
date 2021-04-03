@@ -12,6 +12,73 @@
   padding: 10px;
 }
 
+.wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  width:100%;
+  /* height:95%; */
+  /* padding:10px;
+  border-radius: 10px; */
+}
+
+.wrapper > * {
+  /* padding: 10px; */
+  border-radius: 10px;
+  flex: 1 100%;
+}
+
+/* .wrapper-list > * {
+  padding: 10px;
+  border-radius: 10px;
+  flex: 1 100%;
+}
+ */
+.header-list {
+  background:rgb(255, 255, 150);
+  background-color: #f1f1f1;
+}
+
+.footer {
+  background: lightgreen;
+}
+
+.main {
+  text-align: left;
+  background: deepskyblue;
+}
+
+.aside-1 {
+  background: gold;
+}
+
+.aside-2 {
+  background: hotpink;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0; }
+}
+
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .aside-2 { order: 3; }
+  .footer  { order: 4; }
+}
+
+body {
+  /* padding: 2em;  */
+  margin-right: 2em;
+}
+
+span_ {
+  display:inline-block;
+  border:solid 1px black;
+}
+
 /* .flex-container > div {
   background-color: #f1f1f1;
   width: 100px;  
@@ -52,69 +119,3 @@
 }
  */
 
-.wrapper {
-  display: flex;  
-  flex-flow: row wrap;
-  font-weight: bold;
-  text-align: center;
-  width:100%;
-  /* height:95%; */
-  padding:10px;
-  border-radius: 10px;
-}
-
-.wrapper > * {
-  padding: 10px;
-  border-radius: 10px;
-  flex: 1 100%;
-}
-
-.wrapper-list > * {
-  padding: 10px;
-  border-radius: 10px;
-  flex: 1 100%;
-}
-
-.header-list {
-  background:rgb(255, 255, 150);
-  background-color: #f1f1f1;
-}
-
-.footer {
-  background: lightgreen;
-}
-
-.main {
-  text-align: left;
-  background: deepskyblue;
-}
-
-.aside-1 {
-  background: gold;
-}
-
-.aside-2 {
-  background: hotpink;
-}
-
-@media all and (min-width: 600px) {
-  .aside { flex: 1 0 0; }
-}
-
-@media all and (min-width: 800px) {
-  .main    { flex: 3 0px; }
-  .aside-1 { order: 1; } 
-  .main    { order: 2; }
-  .aside-2 { order: 3; }
-  .footer  { order: 4; }
-}
-
-body {
-  /* padding: 2em;  */
-  margin-right: 2em;
-}
-
-span {
-  display:inline-block;
-  border:solid 1px black;
-}
