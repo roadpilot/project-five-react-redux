@@ -2,7 +2,7 @@ export const setAllGames = games => {
   games = games.map(game => ({
   ...game, 
   // gameTime: new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
-  gameTime: new Date(game.schedule.date).toLocaleString().split(",")[1].replace(":00","")
+  gameTime: new Date(game.schedule.date).toLocaleString().split(", ")[1].replace(":00","")
   })
   )
   return {
