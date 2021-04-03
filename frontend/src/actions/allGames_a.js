@@ -1,4 +1,5 @@
 export const setAllGames = games => {
+  games = games.map(game => ({...game, gameTime: new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)}))
   return {
     type: "SET_ALL_GAMES",
     games
