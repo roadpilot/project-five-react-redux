@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from './StatefulForm_c'
-import DisplayData from './StatefulFormDisplayData_c'
 import { connect } from 'react-redux'
 import { signup } from '../actions/session_a'
  
@@ -44,7 +43,6 @@ class ParentComponent extends React.Component {
           handleSubmit={this.handleSubmit}
           errors={this.state.errors}
         />
-        <DisplayData formData={this.state} />
       </div>
     )
   }
