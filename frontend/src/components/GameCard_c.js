@@ -5,7 +5,6 @@ const GameCard = ({ game, game_id, buttonText, buttonHandler, bets }) => {
 let spread = ""
 let spreadVal = ""
 let spreadFav = ""
-// let spreadUdog = ""
 let spreadOdds = ""
 let spreadWin = ""
 let spreadDispAway = ""
@@ -28,14 +27,10 @@ if (game){
   if (game.odds && game.odds[0].spread){
     if (game.odds[0].spread.current.away<0){
       spreadFav = "away"
-      // spreadUdog = "home"
     } else {
       spreadFav = "home"
-      // spreadUdog = "away"
     }
     spreadVal = game.odds[0].spread.current[spreadFav]
-    // console.log(t.gameId,t.odds[0].spread)
-    // console.log(spreadFav)
     spreadOdds = game.odds[0].spread.current[spreadFav+'Odds']
     switch (spreadFav){
       case "away":
@@ -50,15 +45,11 @@ if (game){
     }
   }
   if (game.odds && game.odds[0].moneyline){
-    // moneyAway = game.odds[0].moneyline.current.awayOdds
-    // moneyHome = game.odds[0].moneyline.current.homeOdds
     moneyOdds = game.odds[0].moneyline.current[spreadFav+'Odds']
   }
   if (typeof game.odds === 'object'){
-    // console.log(game.odds[0])
     totalOdds = game.odds[0].total.current.overOdds
     gameTotal = game.odds[0].total.current.total
-    // console.log(game.odds[0].total)
   }
 
   const winCalc = (amount, odds) => {
@@ -69,7 +60,6 @@ if (game){
   }
 
   const spread_bet=bets.find(bet => bet.bet_type === "spread")
-  console.log("SPREAD", spread_bet)
   if (spread_bet){
     spread=spread_bet.bet_amount
     spreadId = spread_bet.bet_id
@@ -83,7 +73,6 @@ if (game){
     moneylineId = moneyline_bet.bet_id
     moneyOdds=moneyline_bet.bet_odds
     moneyWin = winCalc(moneyline,moneyOdds)
-    // console.log(moneyWin)
   }
 
   const total_bet=bets.find(bet => bet.bet_type === "total")
@@ -139,7 +128,6 @@ return (
           >
           DROP THIS GAME
           </button></aside>
-
             <div>
               <BetForm 
               game_id={game_id} 
@@ -173,7 +161,7 @@ return (
               betWin={totalWin} 
               />
             </div>
-        </div>
+          </div>
         </div>
         :
         null
