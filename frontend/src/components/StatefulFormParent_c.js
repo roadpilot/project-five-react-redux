@@ -9,7 +9,7 @@ class ParentComponent extends React.Component {
     username: "",
     password: "",
     name: "",
-    errors: "TEST",
+    errors: "",
   }
   
 
