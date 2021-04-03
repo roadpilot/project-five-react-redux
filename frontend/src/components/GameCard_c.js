@@ -105,7 +105,7 @@ return (
     game ?
       <div className="flex-container">
         <div className="wrapper">
-          <header className={`bg-${cardColor}-500`}>{game.details.league}: {game.summary}</header>
+          <header className={`mb-1 bg-${cardColor}-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}>{game.details.league}: {game.summary}</header>
           <article className="main">
             <table width="100%">
               <tbody>
