@@ -22,7 +22,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynch creators
-export const getCurrentUser = () => {
+export const getCurrentUser = (history) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/current_user", {
       credentials: "include",
@@ -35,7 +35,8 @@ export const getCurrentUser = () => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          alert(response.error)
+          //alert(response.error)
+          //history.push('/')
         } else {
           dispatch(setCurrentUser(response.data))
         }
