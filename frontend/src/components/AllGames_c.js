@@ -40,7 +40,7 @@ const AllGames = props => {
   ?
     games.map(game => {
       // console.log(game.gameId)
-      const gameTime = new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
+      // const gameTime = new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11)
       let cardColor = "black"
       switch(game.details.league) {
         case "MLB":
@@ -81,7 +81,7 @@ const AllGames = props => {
               href="#"
               onClick={()=>props.addGame(game.gameId)}
             >
-            {gameTime} {game.details.league}: {game.summary}
+            {game.gameTime} {game.details.league}: {game.summary}
             </div>
             // </div>
             
