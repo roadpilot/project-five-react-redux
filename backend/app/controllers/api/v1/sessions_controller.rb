@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
             # render json: @user
         else
             render json: {
-                error: "Invalid Credentials"
+                error: "Invalid username or password.  Please try again."
             }
         end
     end
@@ -16,16 +16,12 @@ class Api::V1::SessionsController < ApplicationController
     def current_user
         @user = User.find_by(id: session[:user_id])
         render json: UserSerializer.new(@user), status: :ok
-
-        # render json: {
-        #     error: "TEST"
-        # }
     end
 
   def destroy
     session.clear
     render json: {
-      notice: "See you next time!"
+      notice: "Logged out!"
     }, status: :ok
   end
 
