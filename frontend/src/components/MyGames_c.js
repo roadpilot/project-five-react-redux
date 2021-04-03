@@ -8,11 +8,21 @@ const MyGames = props => {
     props.myGames.map(gc => {
       const game = props.allGames.find(game => game.gameId === gc.attributes.gameid)
       const bets = gc.attributes.bets
+      console.log("GAME", game)
+      const gameTime = game ? new Date(game.schedule.date).toLocaleString().replace(":00","").slice(11) : null
       // console.log(gc.attributes.gameid)
       // console.log("BETS", bets)
       // debugger
       return (
-        <GameCard key={gc.id} game_id={gc.id} buttonText="Drop" buttonHandler={props.dropGame} game={game} bets={bets}/>
+        <GameCard 
+        key={gc.id} 
+        game_id={gc.id} 
+        buttonText="Drop" 
+        buttonHandler={props.dropGame} 
+        game={game} 
+        bets={bets}
+        gameTime
+        />
       )}
     ) :
     null
