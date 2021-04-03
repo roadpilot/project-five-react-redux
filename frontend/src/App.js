@@ -20,7 +20,11 @@ class App extends React.Component {
         <Switch>
             <Route exact path='/signup' component={ParentComponent}/>
             <Route exact path='/' component={LoginForm}/>
-            <Route path='*' component={LoginForm}/>
+            <Route path='*'  render={() => {
+              return <LoginForm error='You must be logged in to continue...'/>
+            }
+          }
+            />
         </Switch>
       )
     } else {
@@ -33,11 +37,11 @@ class App extends React.Component {
               return <MainContainer leagueFilter={props.match.params.league}/>
             }
           }/>        
-          <Route exact path='/games'  render={() => {
+          <Route exact path='/games' render={() => {
               return <MainContainer leagueFilter=''/>
             }
           }/>        
-          <Route exact path='/'  render={() => {
+          <Route exact path='/' render={() => {
               return <MainContainer leagueFilter=''/>
             }
           }/>        
