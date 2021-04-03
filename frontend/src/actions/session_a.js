@@ -45,7 +45,6 @@ export const getCurrentUser = () => {
 }
 
 export const signup = (credentials) => {
-  console.log(credentials)
   return dispatch => {
     const userInfo = {
       user: {
@@ -54,7 +53,6 @@ export const signup = (credentials) => {
         name: credentials.name,
       }
     }
-    console.log("USERINFO", userInfo)
     return fetch("http://localhost:3001/api/v1/signup", {
       credentials: "include",
       method: "POST",
@@ -66,7 +64,6 @@ export const signup = (credentials) => {
       .then(r => r.json())
       .then(response => {
         if (response.error) {
-          // alert(response.error)
           return response.error
         } else {
           dispatch(setCurrentUser(response.data))
@@ -77,12 +74,10 @@ export const signup = (credentials) => {
 }
 
 export const login = (credentials) => {
-  // console.log(credentials)
   credentials = {
         username: credentials.username.value,
         password: credentials.password.value
   }
-  // credentials = {username: "mda", password: "passwordz"}
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -114,6 +109,5 @@ export const destroySession = () => {
       method: "DELETE"
     })
   }
-
 }
 

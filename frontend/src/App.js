@@ -31,12 +31,10 @@ class App extends React.Component {
           <Navbar/>
           <Switch>
           <Route exact path='/games/:league'  render={props => {
-               // console.log("LEAGUE",props.match.params.league)
               return <MainContainer leagueFilter={props.match.params.league}/>
             }
           }/>        
           <Route exact path='/'  render={() => {
-               // console.log("LEAGUE",props.match.params.league)
               return <MainContainer leagueFilter=''/>
             }
           }/>        
@@ -48,7 +46,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state.session)
   return ({
     loggedIn: (state.session===null || state.session.length===0),
   })

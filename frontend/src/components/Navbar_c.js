@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout_c'
 
-
-
 const Navbar = ({ currentUser, loggedIn }) => {
     if (loggedIn){
   return (
@@ -34,7 +32,6 @@ const Navbar = ({ currentUser, loggedIn }) => {
 }
 
 const mapStateToProps = state => {
-  // console.log("SESSION",Object.keys(state.session).length)
     let currentUser = ""
     if (Object.keys(state.session).length>0){
       currentUser = state.session.attributes.name

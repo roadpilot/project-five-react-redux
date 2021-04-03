@@ -6,10 +6,8 @@ import { connect } from 'react-redux'
 const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin, addBet, deleteBet }) => {
 
   const changeHandler = event => {
-    // console.log(event.target.form)
     let win=(event.target.form.bet_amount.value*-((1/event.target.form.bet_odds.value)*100)).toFixed(0)
     let win_disp = (win > 0) ? win : "";
-    // console.log(win)
     event.target.form.win.value = win_disp
   }
 
@@ -28,7 +26,6 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
   }
 
   const deleteHandler = event => {
-    // event.preventDefault()
     const form = event.target.form
     console.log("TEST",event.target.form)
     const betData ={
@@ -92,6 +89,4 @@ const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin,
     )
 }
 
-// export default connect(mapStateToProps, { updateBetForm })(BetForm);
 export default connect(null,{addBet, deleteBet})(BetForm)
-//export default BetForm;

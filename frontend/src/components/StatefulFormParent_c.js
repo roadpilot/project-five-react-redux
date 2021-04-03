@@ -22,35 +22,19 @@ class ParentComponent extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log(this.props)
     this.props.signup(this.state)
-      .then(response => {
-        console.log("POST SIGNUP",(response===undefined))
-        if (typeof response!=="undefined"){
-          this.setState({
-            ...this.state, "errors": response
-          })
-        }
-        else {
-          this.props.history.push('/')
-        }
-      })
-      // .then(response => {
-      //   console.log("STATE",this.state)
-      // })
-    //   .catch(errors => {
-    //     console.log(errors)
-    // })
+    .then(response => {
+      if (typeof response!=="undefined"){
+        this.setState({
+          ...this.state, "errors": response
+        })
+      }
+      else {
+        this.props.history.push('/')
+      }
+    })
   }
  
-  // async handleSubmit(event){
-  //   event.preventDefault()
-  //   console.log(this.props)
-  //   // const errors = await this.props.signup(event.target)
-  //   // if (errors){return null}    
-  //   console.log(this.state)
-  // }
-  
   render() {
     return (
       <div>
@@ -66,11 +50,4 @@ class ParentComponent extends React.Component {
   }
 }
  
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     signup: (formData) => dispatch(signup(formData))
-//   }
-// }
-
-// export default ParentComponent;
 export default connect(null,{signup})(ParentComponent)

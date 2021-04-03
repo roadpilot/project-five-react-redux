@@ -11,7 +11,6 @@ const LoginForm = ({ login }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(event.target)
     login(event.target)
   }
 

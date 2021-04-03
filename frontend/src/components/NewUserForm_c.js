@@ -3,7 +3,6 @@ import { signup } from '../actions/session_a'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
-
 const NewUserForm = ({ signup }) => {
   const handleInputChange = event => {
       return "foo"
@@ -11,7 +10,6 @@ const NewUserForm = ({ signup }) => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(event.target)
     signup(event.target)
   }
 

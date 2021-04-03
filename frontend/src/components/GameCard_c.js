@@ -53,7 +53,6 @@ if (game){
   }
 
   const winCalc = (amount, odds) => {
-    console.log(amount,odds)
     let win=(amount*-((1/odds)*100)).toFixed(0)
     let win_disp = (win > 0) ? win : "";
     return win_disp
