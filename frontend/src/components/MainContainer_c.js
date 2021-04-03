@@ -4,7 +4,7 @@ import MyGames from './MyGames_c.js'
 
 const MainContainer = (props) => {
   return (
-    <div className="MainContainer pt-20">
+    <div className="MainContainer pt-24">
       <MyGames/>
         <div
         className={`ml-5 px-5 py-3 text-center rounded-lg bg-gray-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}
