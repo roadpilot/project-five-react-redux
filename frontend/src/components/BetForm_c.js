@@ -80,6 +80,7 @@ setErrorMsg("Please enter numbers only")
             onChange={changeHandler}
             // defaultValue={betAmount}
             className="border-2 focus:outline-none focus:ring-2 rounded-lg"
+            autoComplete="off"
             />
           </div>
           <div className="bet-items">
@@ -100,6 +101,7 @@ setErrorMsg("Please enter numbers only")
             className='w-1/3 text-center uppercase bg-green-500 cursor-pointer rounded-lg transform transition hover:bg-green-300 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
             value={buttonLabel}
             onClick={submitHandler}
+            autoComplete="off"
             />
             {
             (betId !== "")?
@@ -109,6 +111,7 @@ setErrorMsg("Please enter numbers only")
               value="X"
               onClick={deleteHandler}
               style={{"color":"red","fontWeight":"bold"}}
+              autoComplete="off"
               />
             :
               null
