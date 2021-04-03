@@ -88,7 +88,7 @@ return (
     game ?
       <div className="flex-container">
         <div className="wrapper">
-          <header className="header">{game.details.league}: {game.summary}</header>
+          <header className="bg-red-500">{game.details.league}: {game.summary}</header>
           <article className="main">
             <table width="100%">
               <tbody>
