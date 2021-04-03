@@ -1,15 +1,15 @@
 import React from 'react'
 import BetForm from './BetForm_c.js'
 
-const GameCard = ({ game, game_id, buttonText, buttonHandler, bets }) => {
-let gametime = ""
+const GameCard = ({ game, game_id, buttonText, buttonHandler, bets, gameTime }) => {
 let spread = ""
 let spreadVal = ""
 let spreadFav = ""
 // let spreadUdog = ""
 let spreadOdds = ""
 let spreadWin = ""
-let spreadRes = ""
+let spreadDispAway = ""
+let spreadDispHome = ""
 let spreadId = ""
 let moneyline = ""
 let moneylineId = ""
@@ -18,7 +18,7 @@ let moneyWin = ""
 let total = ""
 let totalId = ""
 let totalWin = ""
-let scoreAway = ""
+let scoreAway = ": (PREGAME)"
 let scoreHome = ""
 let gameTotal = ""
 let totalOdds = ""
@@ -33,10 +33,21 @@ if (game){
       spreadFav = "home"
       // spreadUdog = "away"
     }
+    spreadVal = game.odds[0].spread.current[spreadFav]
     // console.log(t.gameId,t.odds[0].spread)
     // console.log(spreadFav)
-    spreadVal = game.odds[0].spread.current[spreadFav]
     spreadOdds = game.odds[0].spread.current[spreadFav+'Odds']
+    switch (spreadFav){
+      case "away":
+        spreadDispAway = " ("+spreadVal+")"
+        break;
+      case "home":
+        spreadDispHome = " ("+spreadVal+")"
+        break;
+      default:
+        spreadDispAway = ""
+        spreadDispHome = ""
+    }
   }
   if (game.odds && game.odds[0].moneyline){
     // moneyAway = game.odds[0].moneyline.current.awayOdds
@@ -82,6 +93,11 @@ if (game){
     totalOdds=total_bet.bet_odds
     totalWin = winCalc(total,totalOdds)
   }
+
+  if (game.scoreboard){
+    scoreAway = ": " + game.scoreboard.score.away
+    scoreHome = ": " + game.scoreboard.score.home
+  }
   
   switch(game.details.league) {
     case "MLB":
@@ -105,22 +121,17 @@ return (
     game ?
       <div className="flex-container mb-2">
         <div className="wrapper">
-          <header className={`mb-1 bg-${cardColor}-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}>{game.details.league}: {game.summary}</header>
+          <header className={`mb-1 bg-${cardColor}-500 uppercase tracking-wider font-semibold text-sm text-white shadow-lg sm:text-base`}>{game.details.league}: {game.summary} {gameTime}</header>
           <article className="main">
             <table width="100%">
               <tbody>
                 <tr>
-                  <td colSpan="2">Away</td>
-                  <td colSpan="2">Home</td>
-                </tr>
-                <tr>
-                  <td>Spread:</td>
-                  <td>{spreadVal} ({spreadFav.substring(0,1)})</td>
+                  <td colSpan="2">{game.teams.away.team}{scoreAway}{spreadDispAway}</td>
+                  <td colSpan="2">{game.teams.home.team}{scoreHome}{spreadDispHome}</td>
                 </tr>
               </tbody>
             </table>
           </article>
-          <aside className="aside aside-1">{gametime}</aside>
           <aside className="aside aside-2"><button onClick={()=>buttonHandler(game_id)}>{buttonText}</button></aside>
 
             <div>
