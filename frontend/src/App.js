@@ -14,23 +14,27 @@ class App extends React.Component {
   }
 
   render(){
-    if (this.props.loggedIn) {
-      // Render loading state ...
+    if (this.props.notLoggedIn) {
+      // Render Login state ...
       return (
         <Switch>
             <Route exact path='/signup' component={ParentComponent}/>
             <Route exact path='/' component={LoginForm}/>
-            <Route exact path='/form' component={ParentComponent}/>
+            <Route path='*' component={LoginForm}/>
         </Switch>
       )
     } else {
-      // Render real UI ...
+      // Render Logged in UI ...
       return (
         <div>
           <Navbar/>
           <Switch>
           <Route exact path='/games/:league'  render={props => {
               return <MainContainer leagueFilter={props.match.params.league}/>
+            }
+          }/>        
+          <Route exact path='/games'  render={() => {
+              return <MainContainer leagueFilter=''/>
             }
           }/>        
           <Route exact path='/'  render={() => {
@@ -46,7 +50,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: (state.session===null || state.session.length===0),
+    notLoggedIn: (state.session===null || state.session.length===0),
   })
 }
 
