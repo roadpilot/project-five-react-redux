@@ -1,36 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { addBet, deleteBet } from '../actions/myGames_a'
 import { connect } from 'react-redux'
 
 
 const BetForm = ({ game_id, betId, betName, betType, betOdds, betAmount, betWin, addBet, deleteBet }) => {
-  const [betAmountInput, setbetAmountInput] = useState(betAmount)
-  const [errorMsg, setErrorMsg] = useState()
-  const winCalc = betOdds<0 ? (betAmountInput*-((1/betOdds)*100)).toFixed(0) : ((betAmountInput/100) * betOdds)
-  betWin = (winCalc > 0) ? winCalc : ""
-  // let errorMsg = "FOO"
- 
-  const changeHandler = event => {
-    // console.log(event.target.value)
-    const target = event.target
-    // const form = target.form
-    const regEx = /^[0-9\b]+$/
-    if (target.value === '' || regEx.test(target.value)) {
-      setbetAmountInput(event.target.value)
-setErrorMsg("")
-    }
-    else {
-      // alert('Numbers only')
-setErrorMsg("Please enter numbers only")
-    }
-    // //   let win=(form.bet_amount.value*-((1/form.bet_odds.value)*100)).toFixed(0)
 
-    // // let win_disp = (win > 0) ? win : "";
-    // // // console.log(win)
-    // // betWin = win
-    // // form.win.value = win_disp
-    // betWin = "FOO"//event.target.value
-    // const itemFilter = (event) => setInputFilter(event.target.value.toLowerCase());
+  const changeHandler = event => {
+    // console.log(event.target.form)
+    let win=(event.target.form.bet_amount.value*-((1/event.target.form.bet_odds.value)*100)).toFixed(0)
+    let win_disp = (win > 0) ? win : "";
+    // console.log(win)
+    event.target.form.win.value = win_disp
   }
 
   const submitHandler = event => {
@@ -63,7 +43,6 @@ setErrorMsg("Please enter numbers only")
     }
 
     return(
-      betOdds ?
       <form>
         <input type="hidden" name="game_id" value={game_id}/>
         <input type="hidden" name="bet_id" value={betId}/>
@@ -71,60 +50,45 @@ setErrorMsg("Please enter numbers only")
         <input type="hidden" name="bet_odds" value={betOdds}/>
         <div className="bet-container">
           <div className="bet-items">
-            {betName} Bet:&nbsp;
+            {betName} Bet:
             <input 
             size="5"
             type="text"
             name="bet_amount"
-            value={betAmountInput}
             onChange={changeHandler}
-            // defaultValue={betAmount}
-            className="border-2 focus:outline-none focus:ring-2 rounded-lg"
+            defaultValue={betAmount}
             />
           </div>
           <div className="bet-items">
             @{betOdds}
           </div>
           <div className="bet-items">
-            To win:&nbsp;
+            To win:
             <input 
             disabled
             size="5"
             type="text"
             name="win"
-            value={betWin}
-            // defaultValue={betWin}
+            defaultValue={betWin}
             />
             <input 
             type="submit"
-            className='w-1/3 text-center uppercase bg-green-500 cursor-pointer rounded-lg transform transition hover:bg-green-300 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
             value={buttonLabel}
             onClick={submitHandler}
             />
             {
             (betId !== "")?
-              <input 
-              type="button"
-              className='w-1/3 text-center uppercase bg-gray-200 cursor-pointer rounded-lg transform transition hover:bg-gray-100 hover:-translate-y-0.5 font-semibold text-sm text-white shadow-lg sm:text-base'
-              value="X"
-              onClick={deleteHandler}
-              style={{"color":"red","fontWeight":"bold"}}
-              />
-            :
-              null
+            <input 
+            type="button"
+            value="X"
+            onClick={deleteHandler}
+            style={{"color":"red","fontWeight":"bold"}}
+            />
+            :null
             }
           </div>
         </div>        
-        <p className="text-red-400 w-full text-center">{errorMsg}</p>
       </form>
-      :
-      <div className="grid grid-cols-1">
-      <div className="bg-gray-100">
-        <div className="ml-60">
-      No {betType} odds posted for this game
-        </div>
-      </div>
-      </div>
     )
 }
 
